@@ -46,7 +46,7 @@ Connect your websocket implementation to <code>wss://receet.app/order-service/we
 
 <pre class="center-column">
 {
-  "action": 4019
+ "close": "Close Current Session"
 }
 </pre>
 
@@ -116,20 +116,14 @@ This means that the next message from the client should be an auth message. You 
 }
 </pre>
 
-For now, we also support authentication with an API password (legacy auth).
-
-<pre class="center-column">
-{
-  "type": "auth",
-  "api_password": "supersecret"
-}
-</pre>
-
 If the client supplies valid authentication, the authentication phase will complete by the server sending the auth_ok message:
 
 <pre class="center-column">
 {
-  "type": "auth_ok"
+  "posId": 5,
+  "action": 4023,
+  "type": "auth_ok",
+  "beaconIdentifier": "htVhMU"
 }
 </pre>
 
@@ -171,7 +165,7 @@ Server response example:
    "action":4028
    "order":{
       "externalId":"T004-126572",
-      "posId":"763",
+      "posId":5,
       "subTotalProduct":24.00,
       "totalAdjustment":2.00,
       "totalProduct":22.00,
