@@ -121,6 +121,15 @@ For now, we also support authentication with an API password (legacy auth).
 }
 </pre>
 
+For now, we also support authentication with an API password (legacy auth).
+
+<pre class="center-column">
+{
+  "type": "auth",
+  "api_password": "supersecret"
+}
+</pre>
+
 If the client supplies valid authentication, the authentication phase will complete by the server sending the auth_ok message:
 
 <pre class="center-column">
