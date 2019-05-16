@@ -46,7 +46,7 @@ Connect your websocket implementation to <code>wss://receet.app/order-service/we
 
 <pre class="center-column">
 {
-  "close": "Close Current Session"
+  "action": 4019
 }
 </pre>
 
@@ -303,7 +303,7 @@ Either the server or the POS system can send out a <code>close</code> message to
 
 ```json
 {
-  "close": "Close Current Session"
+  "action": 4019
 }
 ```
 
