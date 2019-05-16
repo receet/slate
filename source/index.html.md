@@ -56,7 +56,7 @@ Example of an auth message:
 
 <pre class="center-column">
 {
-  "action": 4020,
+  "type": "auth",
   "access_token": "ABCDEFGHIJKLMNOPQ"
 }
 </pre>
@@ -89,10 +89,7 @@ If no authentication is needed, the authentication phase will complete and the s
 
 <pre class="center-column">
 {
-  "posId": 5,
-  "action": 4023,
-  "type": "auth_ok",
-  "beaconIdentifier": "htVhMU"
+  "type": "auth_ok"
 }
 </pre>
 
@@ -101,7 +98,6 @@ If authentication is necessary, the server sends out <code>auth_required</code>.
 
 <pre class="center-column">
 {
-  "action": 4021,
   "type": "auth_required"
 }
 </pre>
@@ -111,8 +107,8 @@ This means that the next message from the client should be an auth message. You 
 
 <pre class="center-column">
 {
-  "action": 4020,
-  "access_token": "ABCDEFGHIJKLMNOPQ"
+  "type": "auth",
+  "access_token": "ABCDEFGH"
 }
 </pre>
 
@@ -137,8 +133,8 @@ If the data is incorrect, the server will reply with auth_invalid message and di
 
 <pre class="center-column">
 {
-  "action": 4022,
-  "type": "auth_invalid"
+  "type": "auth_invalid",
+  "message": "Invalid password"
 }
 </pre>
 
@@ -168,7 +164,6 @@ Server response example:
 {
    "media":"digital",
    "languageId":1,
-   "action":4028
    "order":{
       "externalId":"T004-126572",
       "posId":"763",
@@ -218,9 +213,8 @@ Case 2 - Timeout scenario:
 
 ```json
 {
-  "orderId": 21141,
-  "action": 4027,
-  "receiptId": 1785
+  "orderId": "12345",
+  "receiptId":"67890"
 }
 ```
 
