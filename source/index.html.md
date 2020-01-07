@@ -147,8 +147,8 @@ During this phase the client can give commands to the server. The server will re
  "action":4028,
  "order": {
    "externalId" : "T004-126572",
-   "totalProduct" : 39.98,
-   "subTotalProduct" : 39.98,
+   "totalProduct" : 65.00,
+   "subTotalProduct" : 65.00,
    "totalTax" : 0.00,
    "totalShipping" : 0.00,
    "totalTaxShipping" : 0.00,
@@ -157,7 +157,7 @@ During this phase the client can give commands to the server. The server will re
    "currency" : "USD",
    "timePlaced": "2019-02-19 11:39:00",
    "topTextArea" : "Cash transaction",
-   "bottomTextArea": "Paid: $ 100 | Change: $ 60.02 | Points from this sale: 20 | Total points: 100"
+   "bottomTextArea": "Paid: $ 100 | Change: $ 65.00 | Points from this sale: 20 | Total points: 100"
  },
  "billing_address" : {
     "isPrimary": 2,
@@ -176,11 +176,11 @@ During this phase the client can give commands to the server. The server will re
   },
  "order_items" : [
  {
-   "price" : 24.99,
-   "description": "Black Leather Jacket",
+   "price" : 50.00,
+   "description": "Big mac - Large",
    "quantity" : 1,
-   "totalProduct" : 10.3,
-   "taxAmount" : 5.00,
+   "totalProduct" : 55.00,
+   "taxAmount" : 6.00,
    "shipCharg" : 1.00,
    "shipTaxAmount" : 1.00,
    "totalAdjustment" : 1.00,
@@ -189,19 +189,19 @@ During this phase the client can give commands to the server. The server will re
     "comboItems":
 	[
         {
-            "description":"test",
-            "price": 135.00,
-            "quantity": 1.00,
-            "totalProduct": 135.00,
+            "description":"Meat-Medium",
+            "price": 20.50,
+            "quantity": 2.00,
+            "totalProduct": 40.00,
 			"totalAdjustment" : 1.00,
 			"variant": "",
 
         },
         {
-            "description":"test",
-            "price": 135.00,
+            "description":"wedges -Medium",
+            "price": 11.00,
             "quantity": 1.00,
-            "totalProduct": 135.00,
+            "totalProduct": 10.00,
 			"totalAdjustment" : 1.00,
 			"variant": "",
 
@@ -211,15 +211,15 @@ During this phase the client can give commands to the server. The server will re
 
  },
  {
-   "price" : 14.99,
-   "description": "Blue Shirt",
+   "price" : 12.00,
+   "description": "Sandwich-Medium ",
    "quantity" : 1,
-   "totalProduct" : 10.3,
-   "taxAmount" : 5.00,
-   "shipCharg" : 1.00,
-   "shipTaxAmount" : 1.00,
+   "totalProduct" : 10.00,
+   "taxAmount" : 0.00,
+   "shipCharg" : 0.00,
+   "shipTaxAmount" : 0.00,
    "variant": "",
-   "totalAdjustment" : 1.00
+   "totalAdjustment" : 2.00
    
 
  }]
