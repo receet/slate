@@ -73,11 +73,14 @@ If no authentication is needed, the authentication phase will complete and the s
 
 <pre class="center-column">
 {
-  "posId": 5,
+  "posId": 900,
+  "languageId": 1,
   "action": 4023,
   "type": "auth_ok",
-  "beaconIdentifier": "htVhMU"
+  "storeId": 720,
+  "beaconIdentifier": "htQklU"
 }
+ 
 </pre>
 
 
@@ -108,10 +111,12 @@ If the client supplies valid authentication, the authentication phase will compl
 
 <pre class="center-column">
 {
-  "posId": 5,
+ "posId": 900,
+  "languageId": 1,
   "action": 4023,
   "type": "auth_ok",
-  "beaconIdentifier": "htVhMU"
+  "storeId": 720,
+  "beaconIdentifier": "htQklU"
 }
 </pre>
 
@@ -142,7 +147,6 @@ During this phase the client can give commands to the server. The server will re
  "action":4028,
  "order": {
    "externalId" : "T004-126572",
-   "posId" :5,
    "totalProduct" : 39.98,
    "subTotalProduct" : 39.98,
    "totalTax" : 0.00,
@@ -180,7 +184,30 @@ During this phase the client can give commands to the server. The server will re
    "shipCharg" : 1.00,
    "shipTaxAmount" : 1.00,
    "totalAdjustment" : 1.00,
-   "itemNumber":"8651230984234"
+   "variant": "",
+   "itemNumber":"8651230984234",
+    "comboItems":
+	[
+        {
+            "description":"test",
+            "price": 135.00,
+            "quantity": 1.00,
+            "totalProduct": 135.00,
+			"totalAdjustment" : 1.00,
+			"variant": "",
+
+        },
+        {
+            "description":"test",
+            "price": 135.00,
+            "quantity": 1.00,
+            "totalProduct": 135.00,
+			"totalAdjustment" : 1.00,
+			"variant": "",
+
+        }
+             
+    ]
 
  },
  {
@@ -191,7 +218,9 @@ During this phase the client can give commands to the server. The server will re
    "taxAmount" : 5.00,
    "shipCharg" : 1.00,
    "shipTaxAmount" : 1.00,
+   "variant": "",
    "totalAdjustment" : 1.00
+   
 
  }]
 }
@@ -207,7 +236,7 @@ Case 1 - Success scenario:
 
 * POS sends a <code>create_order</code> message in the JSON format in the right column.
 * Server responds with <code>success</code> message.
-* If the customer (end-user) receives his receipt in the specified timeout (30 seconds by default), a <cdoe>close</cdoe> message should be sent to the server.
+* If the customer (end-user) receives his receipt in the specified timeout (3 minutes by default), a <cdoe>close</cdoe> message should be sent to the server.
 
 
 Case 2 - Timeout scenario:
@@ -220,9 +249,10 @@ Case 2 - Timeout scenario:
 
 ```json
 {
-  "orderId": 21161,
+  "orderId": 13500,
   "action": 4027,
-  "receiptId": 1805
+  "genericReceiptId": "ieFXtPAFTBfaemmeHpfdNupladFMgiDd",
+  "receiptId": 12580
 }
 ```
 
@@ -241,6 +271,7 @@ languageId | Language used. 1: English 2: Arabic | Yes
 order object (details below) | JSON Object that contains order details | Yes
 billing_address ojbect (details below) | Customer Address Information, will be shown in Billed To section on the receipt | No 
 order_items object (details below) | Array of order items | Yes
+action | action number | Yes
 
 
 **Order Ojbect**
@@ -248,7 +279,6 @@ order_items object (details below) | Array of order items | Yes
 Parameters | Short Description | Required 
 ---- | ----------- | -----------
 externalId | POS Generated Order ID | Yes
-posId | POS ID from Receet Dashboard | Yes 
 totalProduct | Order Total amount | Yes 
 totalTax | Order Tax amount | No
 totalShipping | Total shipping amount | No 
@@ -262,6 +292,9 @@ timePlaced | Time and date of when the order was placed, Date format:  | Yes
 createdBy | (STRING) - Identifier for the cashier (name or ID) | No
 topTextArea | (STRING) Free text area shows at the top of the receipt. Can take multiple values (pipe separated, example below). Each value show on a new line | No
 bottomTextArea | (STRING) Key, value pair will show at the bottom of the receipt. Can take multiple values (pipe separated, example below). Each value show on a new line | No
+itemNumber | (STRING) Item Number, barcode, etc.. | No 
+variant | (STRING)| No
+
 
 **Billing Address Object**
 
@@ -297,6 +330,20 @@ shipTaxAmount | Tax Amount of shipping, if any | No
 totalAdjustment | Discount amount of list item | No
 adjustmentDescription | Item Level Discout description (e.g. 10% Discount) | No
 itemNumber | (STRING) Item Number, barcode, etc.. | No 
+variant | (STRING)| No
+comboItems | List of comboItems | No
+
+**Combo Items Object**
+
+Parameters | Short Description | Required 
+---- | ----------- | -----------
+price | Combo item price | Yes
+description | Combo item  description, will be shown on digital receipt | Yes
+quantity | Quantity of Combo item | Yes 
+totalProduct | Total combo Item price (Price X Qty) | Yes 
+totalAdjustment | Discount amount of list item | No
+variant | (STRING)| No
+
 
 
 
@@ -331,6 +378,20 @@ bottomTextArea show at the bottom of the receipt, below Total. Example:
 </pre>
 
 <img src="images/top-bottom-text-area.png"/>
+
+# Action codes 
+
+Action ID | Short Description 
+---- | ----------- 
+4019 | Session Closed
+4020 | Send auth
+4021 | auth_required 
+4022 | auth_invalid
+4023 | auth_ok
+4024 | Invalid action code
+4027  | Order has been created successfully
+4028 | Create order
+4031 | Error
 
 # Need Help?
 If you have trouble with any of the information above, or if it's confusing, Please email us at [hello@getreceet.com](mailto:hello@getreceet.com) Thanks!
