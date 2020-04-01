@@ -142,26 +142,60 @@ During this phase the client can give commands to the server. The server will re
 
 ```json
 {
- "media": "digital",
- "languageId": 1,
- "action":4028,
- "order": {
-   "externalId" : "T004-126572",
-   "totalProduct" : 65.00,
-   "subTotalProduct" : 65.00,
-   "totalTax" : 0.00,
-   "totalShipping" : 0.00,
-   "totalTaxShipping" : 0.00,
-   "totalAdjustment" : 0.00,
-   "description" : "Test",
-   "currency" : "USD",
-   "timePlaced": "2019-02-19 11:39:00",
-   "topTextArea" : "Cash transaction",
-   "bottomTextArea": "Paid: $ 100 | Change: $ 65.00 | Points from this sale: 20 | Total points: 100"
- },
+   "media":"digital",
+   "action":4028,
+   "languageId":1,
+   "order":{
+      "externalId":"556761923000114255",
+      "visibleReceiptId":"46",
+      "currency":"USD",
+      "timePlaced":"2020-03-30 14:16:34",
+      "totalTax":51.94,
+      "totalProduct":381.44,
+      "subTotalProduct":312.5,
+      "totalShipping":0.00,
+      "totalTaxShipping":0.00,
+      "totalAdjustment":0.00,
+      "description":"Test",
+      "topTextArea":"Cash transaction",
+      "bottomTextArea":"Paid: $ 100 | Change: $ 65.00 | Points from this sale: 20 | Total points: 100",
+      "discount":[
+         {
+            "totalDiscount":7,
+            "discountType":"FIXED",
+            "discountDescription":"Black Friday"
+         }
+      ],
+      "extraCharges":[
+         {
+            "price":"12",
+            "description":"Fee"
+         },
+         {
+            "price":"12",
+            "description":"Shipping Fees"
+         }
+      ]
+   },
+   "tender":[
+      {
+         "description":"Foreign Currency",
+         "amount":"400",
+         "baseAmount":"430.11",
+         "type":"FOREIGN_CASH",
+         "currency":"EUR"
+      },
+      {
+         "description":"Cash",
+         "amount":"-48.67",
+         "baseAmount":"-0",
+         "type":"CASH",
+         "currency":"USD"
+      }
+   ],
  "billing_address" : {
     "isPrimary": 2,
-	"addressType":"B",
+     "addressType":"B",
     "address1": "Nablus",
     "address2": "Rafidia",
     "address3": "-",
@@ -174,55 +208,99 @@ During this phase the client can give commands to the server. The server will re
     "fax": "09-25999999",
     "email": "hello@getreceet.com"
   },
- "order_items" : [
- {
-   "price" : 50.00,
-   "description": "Big mac - Large",
-   "quantity" : 1,
-   "totalProduct" : 55.00,
-   "taxAmount" : 6.00,
-   "shipCharg" : 1.00,
-   "shipTaxAmount" : 1.00,
-   "totalAdjustment" : 1.00,
-   "variant": "",
-   "itemNumber":"8651230984234",
-    "comboItems":
-	[
-        {
-            "description":"Meat-Medium",
-            "price": 20.50,
-            "quantity": 2.00,
-            "totalProduct": 40.00,
-			"totalAdjustment" : 1.00,
-			"variant": "",
-
-        },
-        {
-            "description":"wedges -Medium",
-            "price": 11.00,
-            "quantity": 1.00,
-            "totalProduct": 10.00,
-			"totalAdjustment" : 1.00,
-			"variant": "",
-
-        }
-             
-    ]
-
- },
- {
-   "price" : 12.00,
-   "description": "Sandwich-Medium ",
-   "quantity" : 1,
-   "totalProduct" : 10.00,
-   "taxAmount" : 0.00,
-   "shipCharg" : 0.00,
-   "shipTaxAmount" : 0.00,
-   "variant": "",
-   "totalAdjustment" : 2.00
-   
-
- }]
+   "order_items":[
+      {
+         "externalId":"552857352000187356",
+         "price":"20",
+         "totalProduct":"60",
+         "quantity":"3",
+         "description":"Adidas",
+         "discount":[],
+         "totalTax":"10.2",
+         "size":"XL",
+         "variant":"Blue",
+         "taxAmount":"0",
+         "modifiers":[],
+         "comboItems":[]
+      },
+      {
+         "externalId":"555939255000111894",
+         "price":"55",
+         "totalProduct":"50",
+         "quantity":"1",
+         "description":"SHOES KIT",
+         "discount":[
+            {
+               "totalDiscount":"5",
+               "discountDescription":"",
+               "discountType":"FIXED"
+            }
+         ],
+         "totalTax":8.5,
+         "size":"",
+         "variant":"",
+         "taxAmount":0,
+         "modifiers":[],
+         "comboItems":[]
+      },
+      {
+         "externalId":"555665486000128662",
+         "price":75,
+         "totalProduct":202.5,
+         "quantity":3,
+         "description":"SHOES PACKAGE",
+         "discount":[
+            {
+               "totalDiscount":22.5,
+               "discountDescription":"",
+               "discountType":"FIXED"
+            }
+         ],
+         "totalTax":34.425,
+         "size":"",
+         "variant":"",
+         "comboItems":[
+            {
+               "externalId":"555665885000173673",
+               "price":35,
+               "totalProduct":74.6052,
+               "quantity":3,
+               "description":"SPORT",
+               "discount":[
+                  {
+                     "totalDiscount":30.3947,
+                     "discountDescription":"Pkg",
+                     "discountType":"FIXED"
+                  }
+               ],
+               "totalTax":12.68289,
+               "size":"",
+               "variant":"",
+               "totalAdjustment":0
+            },
+            {
+               "externalId":"555665784000116670",
+               "price":30,
+               "totalProduct":127.8948,
+               "quantity":6,
+               "description":"POMA",
+               "discount":[
+                  {
+                     "totalDiscount":52.1053,
+                     "discountDescription":"Pkg",
+                     "discountType":"FIXED"
+                  }
+               ],
+               "totalTax":21.74214,
+               "size":"",
+               "variant":"",
+               "totalAdjustment":0
+            }
+         ],
+         "taxAmount":0,
+         "modifiers":[]
+      }
+   ]
 }
 ```
 
@@ -272,6 +350,9 @@ order object (details below) | JSON Object that contains order details | Yes
 billing_address ojbect (details below) | Customer Address Information, will be shown in Billed To section on the receipt | No 
 order_items object (details below) | Array of order items | Yes
 action | action number | Yes
+tender (details below) | Array of tender | No
+
+
 
 
 **Order Ojbect**
@@ -285,15 +366,18 @@ totalShipping | Total shipping amount | No
 totalTaxShipping | Shipping tax amount | No 
 subTotalProduct | Sub-total amount (before tax and discount) | Yes
 totalAdjustment | Total amount of discounts applied on order | No 
-adjustmentDescription | Order Level Discout description (e.g. 10% Discount) | No
+adjustmentDescription | Order Level Discount description (e.g. 10% Discount) | No
 description | Short description of order, if needed| No 
 currency | Currency used (USD, ILS, etc....) | Yes 
 timePlaced | Time and date of when the order was placed, Date format:  | Yes 
 createdBy | (STRING) - Identifier for the cashier (name or ID) | No
 topTextArea | (STRING) Free text area shows at the top of the receipt. Can take multiple values (pipe separated, example below). Each value show on a new line | No
 bottomTextArea | (STRING) Key, value pair will show at the bottom of the receipt. Can take multiple values (pipe separated, example below). Each value show on a new line | No
-itemNumber | (STRING) Item Number, barcode, etc.. | No 
+itemNumber | (STRING) Item Number, bar-code, etc.. | No 
 variant | (STRING)| No
+discount | List of discount | No
+extraCharges| List of discount | No
+
 
 
 **Billing Address Object**
@@ -328,10 +412,13 @@ taxAmount | Tax Amount | No
 shipCharge | Amount of shipping, if any | No
 shipTaxAmount | Tax Amount of shipping, if any | No
 totalAdjustment | Discount amount of list item | No
-adjustmentDescription | Item Level Discout description (e.g. 10% Discount) | No
-itemNumber | (STRING) Item Number, barcode, etc.. | No 
+adjustmentDescription | Item Level Discount description (e.g. 10% Discount) | No
+itemNumber | (STRING) Item Number, bar-code, etc.. | No 
 variant | (STRING)| No
 comboItems | List of comboItems | No
+discount | List of discount | No
+modifiers | List of discount | No
+
 
 **Combo Items Object**
 
@@ -343,8 +430,41 @@ quantity | Quantity of Combo item | Yes
 totalProduct | Total combo Item price (Price X Qty) | Yes 
 totalAdjustment | Discount amount of list item | No
 variant | (STRING)| No
+discount | List of discount | No
+modifiers | List of discount | No
 
+**Tender Object**
 
+Parameters | Short Description | Required 
+---- | ----------- | -----------
+description | tender  description | No
+amount | amount of tender | Yes 
+baseAmount | base amount of tender  | No 
+type | type of tender | No
+currency | currency| No
+
+**Discount Object**
+
+Parameters | Short Description | Required 
+---- | ----------- | -----------
+totalDiscount | total discount amount | Yes
+discountType | discount type  | Yes
+discountDescription | discount description | No 
+discountPercentage | Discount Percentage | No
+
+**Modifier Object**
+
+Parameters | Short Description | Required 
+---- | ----------- | -----------
+price |  Modifier price | No
+description | modifier description | Yes
+quantity | Quantity of modifier | No 
+totalProduct | Total product price (Price X Qty) | No 
+taxAmount | Tax Amount | No 
+totalTax | total tax | No
+variant | (STRING)| No
+size | modifier size | No
+discount | List of discount | No
 
 
 <aside class="notice">
